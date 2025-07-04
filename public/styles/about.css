@@ -1,0 +1,26 @@
+.about-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    gap: 2vh;
+}
+
+.paragraph {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.justified, .justified * {
+    text-align: justify;
+}
+
+.invisible {
+    color: var(--background-color);
+}
+
+.italic {
+    font-style: italic;
+}

@@ -1,0 +1,52 @@
+:root {
+    --discord-button-padding: 24px;
+}
+
+.discord-logo {
+    height: 30px;
+}
+
+.discord-logo * {
+    fill: var(--text-color);
+
+    transition: 0.3s;
+}
+
+.invite-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7vh;
+
+    width: 80vw;
+}
+
+.discord-button:hover .discord-logo * {
+    fill: var(--background-color);
+}
+
+.discord-button:hover {
+    transform: scale(1.02);
+
+    color: var(--background-color);
+    background: var(--text-color);
+}
+
+.discord-button {
+    transition: 0.3s ease-in-out;
+
+    border: 2px var(--text-color) solid;
+    border-radius: 8px;
+
+    padding: calc(var(--discord-button-padding) / 1.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--discord-button-padding);
+
+    text-decoration: none;
+    color: var(--text-color);
+
+    text-transform: uppercase;
+}

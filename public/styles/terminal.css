@@ -1,0 +1,52 @@
+.terminal {
+    width: 100%;
+    max-width: 800px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-title {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.terminal-body {
+    padding: 20px;
+    font-size: 14px;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #000;
+    color: #00ff00;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.terminal-output {
+    margin-bottom: 10px;
+}
+
+.terminal-input {
+    display: flex;
+}
+
+.prompt {
+    color: #00ff00;
+    margin-right: 5px;
+}
+
+#terminal-input {
+    background-color: transparent;
+    border: none;
+    color: #00ff00;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    outline: none;
+}

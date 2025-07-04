@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Terminal</title>
+
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/terminal.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="overlay">
+        <div class="centered">
+            <h2>This website should be visited from a computer.</h2>
+            <p class="muted">Please come back when home.</p>
+
+            <p class="muted">
+                <% if (queryCode !== null) { %>
+                Make sure to remember the code you found: <%= queryCode %>
+                <% } else { %>
+                Make sure to remember the code you found.
+                <% } %>
+            </p>
+        </div>
+    </div>
+
+    <main>
+        <section>
+            <h1>Welcome to The Terminal.</h1>
+
+            <div class="centered">
+                <p class="muted">This is just the beginning.</p>
+            </div>
+
+            <div id="countdown">
+                <div class="textContainer">
+                    <p id="days" class="number"></p>
+                    <p>Days</p>
+                </div>
+                <div class="textContainer">
+                    <p id="hours" class="number"></p>
+                    <p>Hours</p>
+                </div>
+                <div class="textContainer">
+                    <p id="minutes" class="number"></p>
+                    <p>Minutes</p>
+                </div>
+                <div class="textContainer">
+                    <p id="seconds" class="number"></p>
+                    <p>Seconds</p>
+                </div>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal-body" id="terminal-body">
+                    <div class="terminal-output" id="terminal-output">
+                        <div class="d-none" id="lastCommand"></div>
+                        <div class="d-none" id="commandOutput"></div>
+                    </div>
+                    <form class="terminal-input" id="terminal-form">
+                        <span class="prompt">$</span>
+                        <input type="text" name="command" id="terminal-input" autocomplete="off">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/scripts/typewriter.js"></script>
+    <script src="/scripts/terminal.js"></script>
+
+    <script>
+        const now = new Date().getTime();
+
+        const countdownEndDate = new Date('<%= countdownEndDate %>').getTime();
+
+        const countdownContainer = document.querySelector('#countdown');
+
+        const daysContainer = document.querySelector('#days');
+        const hoursContainer = document.querySelector('#hours');
+        const minutesContainer = document.querySelector('#minutes');
+        const secondsContainer = document.querySelector('#seconds');
+
+        refreshDate()
+        setInterval(refreshDate, 1000);
+
+        function refreshDate() {
+            const now = new Date().getTime();
+            const distance = countdownEndDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysContainer.innerHTML = days.toString();
+            hoursContainer.innerHTML = hours.toString();
+            minutesContainer.innerHTML = minutes.toString();
+            secondsContainer.innerHTML = seconds.toString();
+
+            if (distance < 0) {
+                Array.from(countdownContainer.children).forEach(node => node.remove());
+                const textContainer = document.createElement('div');
+                const text = document.createElement('h2');
+                text.innerHTML = 'The Terminal is closed.';
+
+                textContainer.append(text);
+                countdownContainer.append(textContainer);
+            }
+        }
+    </script>
+</body>
+</html>

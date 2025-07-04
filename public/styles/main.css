@@ -1,0 +1,113 @@
+:root {
+    --background-color: #1a1a1a;
+    --text-color: #f4f4f4;
+}
+
+.d-none {
+    display: none;
+}
+
+body {
+    overflow: hidden;
+    background: var(--background-color);
+    color: var(--text-color);
+
+    font-family: 'Lato', sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7vh;
+
+    width: 80vw;
+}
+
+h1 {
+    font-size: 5vw;
+}
+
+.muted {
+    color: #858585;
+}
+
+.mt-1 {
+    margin-top: 16px;
+}
+
+.mt-2 {
+    margin-top: 32px;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 3vh;
+}
+
+.centered {
+    text-align: center;
+}
+
+.textContainer * {
+    text-transform: uppercase;
+}
+
+.number {
+    font-size: 4vw;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: calc((100vw - 50%) / 5);
+}
+
+#overlay {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    #overlay {
+        position: absolute;
+
+        height: 100vh;
+        width: 100vw;
+        background: var(--background-color);
+        color: var(--text-color);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding-right: 10vw;
+        padding-left: 10vw;
+    }
+
+    #overlay h2 {
+        text-align: center;
+        font-size: 5vh;
+    }
+
+    #overlay .centered {
+        display: flex;
+        flex-direction: column;
+        gap: 5vh;
+    }
+
+    #overlay p {
+        font-size: 2.2vh;
+    }
+}

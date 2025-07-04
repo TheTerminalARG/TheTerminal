@@ -1,0 +1,21 @@
+{
+  "name": "the-terminal",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:TheTerminalARG/the-terminal",
+  "author": "Edouard Courty <edouard.courty2@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-winston": "^4.2.0",
+    "helmet": "^8.0.0",
+    "pdfkit": "^0.15.0",
+    "qrcode": "^1.5.4",
+    "winston": "^3.15.0"
+  }
+}
